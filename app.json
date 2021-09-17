@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A platform for sellers and buyers!",
+    "githubUrl": "https://github.com/mwendwa99/shoppy"
   }
 }
