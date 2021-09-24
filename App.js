@@ -2,6 +2,8 @@
 import React from 'react';
 import { StyleSheet, Text, Alert, View, StatusBar, SafeAreaView, Button, Platform } from 'react-native';
 import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
 
 export default function App() {
 
@@ -9,13 +11,8 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{
-        backgroundColor: 'black',
-        width: '100%',
-        height: landscape ? '100%' : '30%'
-      }} >
-
-      </View>
+      <WelcomeScreen />
+      {/* <ViewImageScreen /> */}
     </SafeAreaView>
   );
 }
@@ -23,7 +20,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });
