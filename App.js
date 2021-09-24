@@ -4,22 +4,27 @@ import { StyleSheet, Text, Alert, View, StatusBar, SafeAreaView, Button, Platfor
 import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
+import Card from './app/components/Card';
+import ListingDetailScreen from './app/screens/ListingDetailScreen';
 
 export default function App() {
 
   const { landscape } = useDeviceOrientation();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <WelcomeScreen />
+    // <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen /> */}
-    </SafeAreaView>
+      <ListingDetailScreen />
+    </View>
+    // </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });

@@ -7,7 +7,6 @@ function WelcomeScreen(props) {
     return (
         <ImageBackground
             style={styles.background}
-            blurRadius={1}
             imageStyle={{ opacity: 0.4 }}
             source={require('../assets/background.jpg')}>
             <View style={styles.logoContainer}>
@@ -16,7 +15,7 @@ function WelcomeScreen(props) {
             </View>
             <View style={styles.buttonContainer}>
                 <AppButton title="login" onPress={() => console.log('tapped')} />
-                <AppButton title="Regiser" color="secondary" onPress={() => console.log('tapped')} />
+                <AppButton title="Register" color="secondary" onPress={() => console.log('tapped')} />
 
             </View>
         </ImageBackground>
