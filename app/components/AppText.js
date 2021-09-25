@@ -10,6 +10,6 @@ export default function AppText({ children, style }) {
 const styles = StyleSheet.create({
     text: {
         fontSize: 18,
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Raleway"
+        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
     }
 })
