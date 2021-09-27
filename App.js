@@ -6,19 +6,27 @@ import ViewImageScreen from './app/screens/ViewImageScreen';
 import ListingDetailScreen from './app/screens/ListingDetailScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import Screen from './app/components/Screen';
-import Icon from './app/components/Icon';
-import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
-import AppTextInput from './app/components/AppTextInput';
+import LoginScreen from './app/screens/LoginScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
+
+const categories = [
+  { label: "furniture", value: 1 },
+  { label: "clothing", value: 2 },
+  { label: "phone", value: 3 },
+]
 
 export default function App() {
-
-  const [firstName, setFirstName] = useState('');
+  const [category, setCategory] = useState(categories[0])
 
   return (
-    <Screen>
-      <AppTextInput placeholder="Username" icon="email" />
+    <Screen style={styles.container}>
+      <WelcomeScreen />
+      {/* <LoginScreen /> */}
+      {/* <ListingDetailScreen /> */}
+      {/* <AccountScreen /> */}
+      {/* <ListingEditScreen /> */}
     </Screen>
   );
 }
