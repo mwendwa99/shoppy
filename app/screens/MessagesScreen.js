@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, FlatList, View } from 'react-native'
+import { FlatList } from 'react-native'
 import ListItem from '../components/ListItem'
 import ListItemDeleteAction from '../components/ListItemDeleteAction'
 import ListItemSeparator from '../components/ListItemSeparator'
@@ -8,14 +8,14 @@ import Screen from '../components/Screen'
 const initialMessages = [
     {
         id: 1,
-        title: 'T1',
-        description: 'D1',
+        title: 'Brian Mwendwa',
+        description: 'Hello is this couch still in stock?',
         image: require('../assets/user.jpg')
     },
     {
         id: 2,
-        title: 'T2',
-        description: 'D2',
+        title: 'Brian Mwendwa',
+        description: 'I am interesed in this item. When is it available for pickup?',
         image: require('../assets/user.jpg')
     }
 ]
@@ -61,5 +61,3 @@ export default function MessagesScreen() {
         </Screen>
     )
 }
-
-const styles = StyleSheet.create({})
