@@ -17,8 +17,8 @@ export default function ListItem({ title, image, IconComponent, subTitle, onPres
                     {IconComponent}
                     {image && <Image style={styles.image} source={image} />}
                     <View style={styles.detailsContainer}>
-                        <AppText style={styles.title}>{title}</AppText>
-                        {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                        <AppText numberOfLines={1} style={styles.title}>{title}</AppText>
+                        {subTitle && <AppText style={styles.subTitle} numberOfLines={2} >{subTitle}</AppText>}
                     </View>
                     <MaterialCommunityIcons color={colors.medium} name='chevron-right' size={25} />
                 </View>
