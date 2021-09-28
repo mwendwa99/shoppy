@@ -6,24 +6,28 @@ import AppText from './AppText'
 import PickerItem from './PickerItem';
 import Screen from './Screen';
 
-const AppPicker = ({ icon, items, onSelectItem, selectedItem, placeholder }) => {
+const AppPicker = ({
+    icon,
+    items,
+    numberOfColumns = 1,
+    onSelectItem,
+    PickerItemComponent = PickerItem,
+    selectedItem,
+    width = "100%",
+    placeholder }) => {
 
     const [modalVisible, setModalVisible] = React.useState(false)
-    // console.log(items)
 
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)} >
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {icon && <MaterialCommunityIcons name={icon} size={20} style={styles.icon} />}
 
                     {selectedItem
                         ? <AppText style={styles.text}> {selectedItem.label} </AppText>
                         : <AppText style={styles.placeholder}> {placeholder} </AppText>
                     }
-                    {/* // <AppText style={styles.text}>
-                    //     {selectedItem ? selectedItem.label : placeholder}
-                    // </AppText> */}
                     <MaterialCommunityIcons name="chevron-down" size={20} />
                 </View>
             </TouchableWithoutFeedback>
@@ -32,8 +36,10 @@ const AppPicker = ({ icon, items, onSelectItem, selectedItem, placeholder }) => 
                 <FlatList
                     data={items}
                     keyExtractor={item => item.value.toString()}
+                    numColumns={numberOfColumns}
                     renderItem={({ item }) =>
-                        <PickerItem
+                        <PickerItemComponent
+                            item={item}
                             label={item.label}
                             onTap={() => {
                                 setModalVisible(false);
@@ -56,7 +62,6 @@ const styles = StyleSheet.create({
         backgroundColor: defaultStyles.colors.light,
         borderRadius: 25,
         flexDirection: 'row',
-        width: '100%',
         padding: 15,
         marginVertical: 10,
         alignItems: 'center'

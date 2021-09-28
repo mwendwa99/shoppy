@@ -25,10 +25,10 @@ export default function App() {
       {/* <WelcomeScreen /> */}
       {/* <LoginScreen /> */}
       {/* <ListingDetailScreen /> */}
-      <MessagesScreen />
+      {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
-      {/* <ListingEditScreen /> */}
+      <ListingEditScreen />
     </Screen>
   );
 }
