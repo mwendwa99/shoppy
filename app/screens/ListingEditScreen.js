@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 
@@ -64,5 +63,3 @@ const ListingEditScreen = () => {
 }
 
 export default ListingEditScreen
-
-const styles = StyleSheet.create({})

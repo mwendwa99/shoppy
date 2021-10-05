@@ -1,6 +1,7 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Button, Image, StyleSheet, Text, TextInput, View, } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import ListingDetailScreen from './app/screens/ListingDetailScreen';
@@ -10,6 +11,8 @@ import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 const categories = [
   { label: "furniture", value: 1 },
@@ -18,7 +21,14 @@ const categories = [
 ]
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0])
+  const [imageUris, setImageUris] = useState([]);
+
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri])
+  }
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri))
+  }
 
   return (
     <Screen style={styles.container}>
@@ -28,7 +38,12 @@ export default function App() {
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
-      <ListingEditScreen />
+      {/* <ListingEditScreen /> */}
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
     </Screen>
   );
 }
