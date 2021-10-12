@@ -38,12 +38,12 @@ export default function App() {
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
-      {/* <ListingEditScreen /> */}
-      <ImageInputList
+      <ListingEditScreen />
+      {/* <ImageInputList
         imageUris={imageUris}
         onAddImage={handleAdd}
         onRemoveImage={handleRemove}
-      />
+      /> */}
     </Screen>
   );
 }
