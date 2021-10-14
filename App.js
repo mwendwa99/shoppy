@@ -32,13 +32,13 @@ export default function App() {
 
   return (
     <Screen style={styles.container}>
-      {/* <WelcomeScreen /> */}
+      <WelcomeScreen />
       {/* <LoginScreen /> */}
       {/* <ListingDetailScreen /> */}
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
       {/* <ListingsScreen /> */}
-      <ListingEditScreen />
+      {/* <ListingEditScreen /> */}
       {/* <ImageInputList
         imageUris={imageUris}
         onAddImage={handleAdd}
