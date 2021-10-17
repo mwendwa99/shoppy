@@ -3,13 +3,15 @@ import React from 'react';
 import ErrorMessage from './ErrorMessage';
 import AppPicker from '../AppPicker';
 
-export default function AppFormPicker({ items,
+export default function AppFormPicker({
+    items,
     name,
     numberOfColumns,
     placeholder,
     PickerItemComponent,
     width }) {
-    const { errors, setFieldValue, touched, values } = useFormikContext()
+    const { errors, setFieldValue, touched, values } = useFormikContext();
+
     return (
         <>
             <AppPicker

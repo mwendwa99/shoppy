@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Yup from 'yup';
-import CategoryPickerItem from '../components/CategoryPickerItem';
+import * as Location from 'expo-location';
 
 import { AppForm, AppFormField, SubmitButton, AppFormPicker } from '../components/forms';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 import FormImagePicker from '../components/forms/FormImagePicker';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
-    title: Yup.string().required().min(1).label('title'),
+    title: Yup.string().required().min(1).label('Title'),
     price: Yup.number().required().min(1).max(10000).label("Price"),
     description: Yup.string().label("Description"),
     category: Yup.object().required().nullable().label("Category"),
@@ -15,13 +16,25 @@ const validationSchema = Yup.object().shape({
 });
 
 const categories = [
-    { label: "furniture", value: 1, backgroundColor: 'red', icon: 'apps' },
-    { label: "clothing", value: 2, backgroundColor: 'green', icon: 'email' },
-    { label: "phone", value: 3, backgroundColor: 'blue', icon: 'lock' },
+    { label: "furniture", value: 1, backgroundColor: 'red', icon: 'home' },
+    { label: "clothing", value: 2, backgroundColor: 'green', icon: 'hanger' },
+    { label: "phone", value: 3, backgroundColor: 'blue', icon: 'cellphone-basic' },
 ]
 const ListingEditScreen = () => {
+    const [columns, setColumns] = useState(3);
+    const [location, setLocation] = useState()
 
-    const [columns, setColumns] = useState(3)
+    // fn to get user location async
+    const getLocation = async () => {
+        const { granted } = await Location.requestForegroundPermissionsAsync();
+        if (!granted) return;
+        const { coords: { latitude, longitude } } = await Location.getLastKnownPositionAsync()
+        setLocation({ latitude, longitude })
+    }
+    // run fn on view mount
+    useEffect(() => {
+        getLocation();
+    }, [])
 
     return (
         <Screen>
@@ -33,8 +46,9 @@ const ListingEditScreen = () => {
                     category: null,
                     images: []
                 }}
-                onSubmit={(values) => console.log(values)}
-                validationSchema={validationSchema}
+                onSubmit={(values) => console.log(location)}
+            // validationSchema={validationSchema}
+            // validator={() => ({})}
             >
                 <FormImagePicker name="images" />
                 <AppFormField maxLength={255} name="title" placeholder="Title" />
@@ -58,6 +72,7 @@ const ListingEditScreen = () => {
                     maxLength={255}
                     multiline
                     name="description"
+                    placeholder="Description"
                     numberOfLines={3}
                 />
                 <SubmitButton title="Post" />

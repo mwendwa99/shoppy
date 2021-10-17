@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Image, TouchableWithoutFeedback, Alert } from 'react-native';
-import colors from '../config/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+
+import colors from '../config/colors';
 
 const ImageInput = ({ imageUri, onChangeImage }) => {
     useEffect(() => {
@@ -11,9 +12,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
 
     const requestPermission = async () => {
         const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-        if (!granted) {
-            alert('You need to enable permissions to access the library')
-        }
+        if (!granted) alert('You need to enable permissions to access the library')
     }
 
     const handlePress = () => {
@@ -34,7 +33,7 @@ const ImageInput = ({ imageUri, onChangeImage }) => {
                 onChangeImage(result.uri)
             }
         } catch (error) {
-            console.log('error reading image')
+            console.log('error reading image' + error)
         }
     }
 
