@@ -117,7 +117,7 @@ function ListingEditScreen() {
                     numberOfColumns={3}
                     PickerItemComponent={CategoryPickerItem}
                     placeholder="Category"
-                    width="50%"
+                // width="50%"
                 />
                 <AppFormField
                     maxLength={255}
