@@ -17,7 +17,7 @@ const LoginScreen = () => {
             <AppForm
                 initialValues={{ email: '', password: '' }}
                 onSubmit={values => console.log(values)}
-                validationSchema={validationSchema}
+                validationSchema={validationSchema}//************************* */
             >
                 <AppFormField
                     icon="email"

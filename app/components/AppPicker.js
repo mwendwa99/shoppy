@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, FlatList, Modal, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { Button, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import defaultStyles from '../config/styles';
 import AppText from './AppText'
 import PickerItem from './PickerItem';
-import Screen from './Screen';
 
 const AppPicker = ({
     icon,
@@ -20,35 +20,46 @@ const AppPicker = ({
 
     return (
         <>
-            <TouchableWithoutFeedback onPress={() => setModalVisible(true)} >
+            <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
                 <View style={[styles.container, { width }]}>
-                    {icon && <MaterialCommunityIcons name={icon} size={20} style={styles.icon} />}
+                    {icon && (
+                        <MaterialCommunityIcons
+                            name={icon}
+                            size={20}
+                            color={defaultStyles.colors.medium}
+                            style={styles.icon}
+                        />
+                    )}
+                    {selectedItem ? (
+                        <AppText style={styles.text}>{selectedItem.label}</AppText>
+                    ) : (
+                        <AppText style={styles.placeholder}>{placeholder}</AppText>
+                    )}
 
-                    {selectedItem
-                        ? <AppText style={styles.text}> {selectedItem.label} </AppText>
-                        : <AppText style={styles.placeholder}> {placeholder} </AppText>
-                    }
-                    <MaterialCommunityIcons name="chevron-down" size={20} />
+                    <MaterialCommunityIcons
+                        name="chevron-down"
+                        size={20}
+                        color={defaultStyles.colors.medium}
+                    />
                 </View>
             </TouchableWithoutFeedback>
-            <Modal visible={modalVisible} animationType="slide" >
+
+            <Modal visible={modalVisible} animationType="slide">
                 <Button title="Close" onPress={() => setModalVisible(false)} />
                 <FlatList
                     data={items}
-                    keyExtractor={item => item.value.toString()}
+                    keyExtractor={(item) => item.value.toString()}
                     numColumns={numberOfColumns}
-                    renderItem={({ item }) =>
+                    renderItem={({ item }) => (
                         <PickerItemComponent
                             item={item}
                             label={item.label}
-                            onTap={() => {
+                            onPress={() => {
                                 setModalVisible(false);
                                 onSelectItem(item);
-                                console.log(item)
                             }}
                         />
-
-                    }
+                    )}
                 />
             </Modal>
         </>

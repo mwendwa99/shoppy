@@ -14,14 +14,8 @@ import ListingEditScreen from './app/screens/ListingEditScreen';
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
 
-const categories = [
-  { label: "furniture", value: 1 },
-  { label: "clothing", value: 2 },
-  { label: "phone", value: 3 },
-]
 
 export default function App() {
-
   return (
     <Screen style={styles.container}>
       {/* <WelcomeScreen /> */}
