@@ -19,6 +19,7 @@ import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
+import AppNavigator from './app/navigation/AppNavigator';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
@@ -46,7 +47,7 @@ const TabNavigator = () => (
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 }
