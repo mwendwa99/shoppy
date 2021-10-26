@@ -11,7 +11,6 @@ import ViewImageScreen from './app/screens/ViewImageScreen';
 import ListingDetailScreen from './app/screens/ListingDetailScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import Screen from './app/components/Screen';
-import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
@@ -20,29 +19,6 @@ import ImageInputList from './app/components/ImageInputList';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
-
-const Tab = createBottomTabNavigator();
-const TabNavigator = () => (
-  <Tab.Navigator
-    screenOptions={{
-      tabBarActiveBackgroundColor: 'tomato',
-      tabBarActiveTintColor: 'white',
-      tabBarInactiveBackgroundColor: '#eee',
-      tabBarInactiveTintColor: 'black',
-    }}
-  >
-    <Tab.Screen
-      name="Feed"
-      component={ListingsScreen}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons name="home" size={size} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen name="Account" component={AccountScreen} />
-  </Tab.Navigator>
-)
 
 export default function App() {
   return (
