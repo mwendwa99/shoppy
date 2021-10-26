@@ -5,19 +5,36 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import ListingEditScreen from "../screens/ListingEditScreen";
 import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import colors from '../config/colors';
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{
+        headerStyle: {
+            backgroundColor: colors.primary
+        }
+    }} >
         <Tab.Screen
             options={{
                 tabBarIcon: ({ color, size }) =>
-                    <MaterialCommunityIcons name="home" color={color} size={size} />
+                    <MaterialCommunityIcons name="shopping" color={color} size={size} />,
+                headerShown: true,
             }}
-            name="Feed" component={FeedNavigator} />
-        <Tab.Screen name="Add" component={ListingEditScreen} />
-        <Tab.Screen name="Account" component={AccountNavigator} />
+            name="Shop" component={FeedNavigator} />
+        <Tab.Screen
+            options={{
+                tabBarIcon: ({ color, size }) =>
+                    <MaterialCommunityIcons name="plus-box" color={color} size={size} />
+            }}
+            name="New Listing" component={ListingEditScreen} />
+        <Tab.Screen
+            options={{
+                tabBarIcon: ({ color, size }) =>
+                    <MaterialCommunityIcons name="account-box" color={color} size={size} />
+            }}
+            name="Account" component={AccountNavigator} />
     </Tab.Navigator>
 )
 
