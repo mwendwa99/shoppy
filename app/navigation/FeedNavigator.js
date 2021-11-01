@@ -1,7 +1,9 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import ListingsScreen from '../screens/ListingsScreen';
 import ListingDetailScreen from '../screens/ListingDetailScreen';
+import colors from '../config/colors';
 
 const Stack = createStackNavigator();
 
@@ -9,8 +11,8 @@ const FeedNavigator = () => (
 
     <Stack.Navigator
         screenOptions={{
-            presentation: 'modal',
-            headerShown: false,
+            presentation: 'card',
+            headerShown: false
         }}
 
     >
