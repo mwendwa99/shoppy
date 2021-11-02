@@ -16,7 +16,7 @@ const ListingsScreen = ({ navigation }) => {
     useEffect(() => {
         loadListings();
     }, []);
-
+    console.log(listings)
 
 
     return (
